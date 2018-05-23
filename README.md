@@ -2,7 +2,7 @@
 
 [![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/gerardojunior/symfony.environment)
 
-Docker image to run [symfony](https://symfony.com/) framework with [mongodb](https://docs.mongodb.com/ecosystem/drivers/php/) projects
+Docker image to run [symfony](https://symfony.com/) framework
 
 > The project must be in the **/usr/local/src** (with "public" folder) folder container folder and will be available on port **:80** of the container
 
@@ -42,7 +42,7 @@ docker build . --tag gerardojunior/symfony.environment
 
 ```bash
 # in your project folder
-docker run -it --rm -v $(pwd):/usr/share/src -p 1234:80 -p 4321:8080 gerardojunior/symfony.environment:stable [command]
+docker run -it --rm -v $(pwd):/usr/share/src -p 1234:80 gerardojunior/symfony.environment:stable [command]
 ```
 ##### With [docker-compose](https://docs.docker.com/compose/)
 

@@ -116,6 +116,7 @@ RUN set -xe && \
                    --enable-mbstring \
                    --with-sodium=shared \
                    --with-curl \
+                   --with-iconv \
                    --with-libedit \
                    --with-openssl \
                    --with-zlib \
@@ -199,9 +200,8 @@ RUN set -xe && \
           COMPOSER_SOURCE_URL
 
 # Copy scripts
-COPY ./tools/start.sh /usr/local/bin/start.sh
 COPY ./tools/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Set project directory
 VOLUME ["/usr/share/src"]
