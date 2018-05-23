@@ -2,7 +2,7 @@
 
 [![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/gerardojunior/symfony.environment)
 
-Docker image to run [phalcon](https://phalconphp.com/) framework with [mongodb](https://docs.mongodb.com/ecosystem/drivers/php/) projects
+Docker image to run [symfony](https://symfony.com/) framework with [mongodb](https://docs.mongodb.com/ecosystem/drivers/php/) projects
 
 > The project must be in the **/usr/local/src** (with "public" folder) folder container folder and will be available on port **:80** of the container
 
