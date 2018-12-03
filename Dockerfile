@@ -150,7 +150,6 @@ RUN set -xe && \
     chmod +x /usr/local/bin/composer
 
 # Compile, install and configure XDebug php extension
-ARG XDEBUG_CONFIG_HOST=docker.for.mac.host.internal
 ARG XDEBUG_CONFIG_PORT=9000
 ARG XDEBUG_CONFIG_IDEKEY="IDEA_XDEBUG"
 RUN set -xe && \
@@ -170,15 +169,14 @@ RUN set -xe && \
         echo -e "[XDebug] \n" \
                 "zend_extension = $(find /usr/local/lib/php/extensions/ -name xdebug.so) \n" \
                 "xdebug.remote_enable = on \n" \
-                "xdebug.remote_host = ${XDEBUG_CONFIG_HOST} \n" \
+                "xdebug.remote_host = 0.0.0.0 \n" \
                 "xdebug.remote_port = ${XDEBUG_CONFIG_PORT} \n" \
                 "xdebug.remote_handler = \"dbgp\" \n" \
                 "xdebug.remote_connect_back = off \n" \
                 "xdebug.cli_color = on \n" \
                 "xdebug.idekey = \"${XDEBUG_CONFIG_IDEKEY}\"" > /usr/local/etc/php/conf.d/xdebug.ini \
     ; fi && \
-    unset XDEBUG_CONFIG_HOST \
-          XDEBUG_CONFIG_PORT \
+    unset XDEBUG_CONFIG_PORT \
           XDEBUG_CONFIG_IDEKEY
 
 # Cleanup system

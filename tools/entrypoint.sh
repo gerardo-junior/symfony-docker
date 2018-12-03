@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ -f /usr/local/etc/php/conf.d/xdebug.ini ]; then
+    sudo sh -c 'sed -i "s/0.0.0.0/'$(ip route | awk 'NR==1 {print $3}')'/g" /usr/local/etc/php/conf.d/xdebug.ini'
+fi
+
 if [ -e "$(pwd)/composer.json" ]; then
     /usr/local/bin/php /usr/local/bin/composer install --no-interaction $(if [[ ! $DEBUG = "true" ]]; then echo '--no-dev'; fi)
 fi
