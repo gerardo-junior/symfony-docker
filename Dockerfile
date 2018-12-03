@@ -4,7 +4,7 @@ LABEL maintainer="Gerardo Junior <me@gerardo-junior.com>"
 # Get installation variables
 ARG HTTPD_VERSION=2.4.33
 ARG HTTPD_VERSION_SHA256=de02511859b00d17845b9abdd1f975d5ccb5d0b280c567da5bf2ad4b70846f05
-ARG HTTPD_SOURCE_URL=https://www.apache.org/dist/httpd
+ARG HTTPD_SOURCE_URL=https://archive.apache.org/dist/httpd
 
 ARG PHP_VERSION=7.2.5
 ARG PHP_VERSION_SHA256=af70a33b3f7a51510467199b39af151333fbbe4cc21923bad9c7cf64268cddb2
