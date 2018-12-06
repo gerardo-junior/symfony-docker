@@ -206,4 +206,4 @@ VOLUME ["/usr/share/src"]
 WORKDIR /usr/share/src
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 USER www-data
-EXPOSE 80
+EXPOSE 80 $XDEBUG_CONFIG_PORT
