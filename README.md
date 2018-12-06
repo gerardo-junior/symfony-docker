@@ -42,7 +42,7 @@ docker build . --tag gerardojunior/symfony.environment:stable
 
 ```bash
 # in your project folder
-docker run -it --rm -v $(pwd):/usr/share/src -p 1234:80 gerardojunior/symfony.environment:stable [command]
+docker run -it --rm -v $(pwd):/usr/share/src -p 1234:80 gerardojunior/symfony.environment:stable [sh command or symfony console]
 ```
 ##### With [docker-compose](https://docs.docker.com/compose/)
 
@@ -53,13 +53,13 @@ Create the docker-compose.yml file  in your project folder with:
 
   api: 
     image: gerardojunior/symfony.environment:stable
-    restart: on-failure
     volumes:
       - type: bind
         source: ./
         target: /usr/share/src
     ports:
       - 1234:80
+      # - 9000:9000 # xdebug port
 
 # (...)
 ```
@@ -67,12 +67,18 @@ Create the docker-compose.yml file  in your project folder with:
 ## How to enter image shell
  
 ```bash
-docker run -it --rm gerardojunior/symfony.environment:stable /bin/sh
+docker run -it --rm gerardojunior/symfony.environment:stable sh
 
 # or with docker-compose
 
-docker-compose run api /bin/sh
+docker-compose run api sh
 ```
+
+
+## how to configure xdebug (if you build with DEBUG=true)
+
+> the default ide key is **IDEA_XDEBUG** but you can change with arg build *XDEBUG_CONFIG_IDEKEY*
+> the debug server will be available in **:9000** by default but you can change with arg *XDEBUG_CONFIG_PORT*
 
 ### License  
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
