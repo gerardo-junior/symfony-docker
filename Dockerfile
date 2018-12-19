@@ -113,6 +113,7 @@ RUN set -xe && \
                    --with-config-file-scan-dir="/usr/local/etc/php/conf.d" \
                    --enable-cgi \
                    --enable-ftp \
+                   --enable-zip \
                    --enable-mbstring \
                    --with-sodium=shared \
                    --with-curl \
