@@ -5,7 +5,7 @@ if [ -f /usr/local/etc/php/conf.d/xdebug.ini ]; then
 fi
 
 if [ -e "$(pwd)/composer.json" ]; then
-    /usr/local/bin/php /usr/local/bin/composer install --no-interaction $(if [[ ! $DEBUG = "true" ]]; then echo '--no-dev'; fi)
+    /usr/local/bin/php /usr/local/bin/composer install --no-interaction $(if [[ $DEBUG = "false" ]]; then echo '--no-dev'; fi)
 fi
 
 if [ ! -z "$1" ]; then
