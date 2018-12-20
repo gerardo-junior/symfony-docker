@@ -114,6 +114,9 @@ RUN set -xe && \
                    --enable-cgi \
                    --enable-ftp \
                    --enable-zip \
+                   --enable-pdo \
+                   --with-mysql=mysqlnd \
+                   --with-pdo-mysql=mysqlnd \
                    --enable-mbstring \
                    --with-sodium=shared \
                    --with-curl \
