@@ -129,7 +129,6 @@ RUN set -xe && \
 	make install && \
 	find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true && \
     make clean && \
-    mv php.ini-production /usr/local/etc/php/php.ini && \
     cd .. && \
     runDeps="$( scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
                 | tr ',' '\n' \
@@ -141,6 +140,7 @@ RUN set -xe && \
     unset CFLAGS \
           CPPFLAGS \
           LDFLAGS
+COPY php.ini /usr/local/etc/php/php.ini
 COPY httpd.conf /usr/local/apache2/conf/httpd.conf
 
 
