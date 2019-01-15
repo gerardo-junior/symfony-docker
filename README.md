@@ -1,6 +1,6 @@
 # Symfony docker image 
 
-[![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/gerardojunior/symfony.environment)
+[![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/gerardojunior/symfony)
 
 Docker image to run [symfony](https://symfony.com/) framework
 
@@ -22,7 +22,7 @@ Docker image to run [symfony](https://symfony.com/) framework
 ## Come on, do your tests
 
 ```bash
-docker pull gerardojunior/symfony.environment:stable
+docker pull gerardojunior/symfony:stable
 ```
 ## How to build
 
@@ -30,9 +30,9 @@ to build the image you need install the [docker engine](https://www.docker.com/)
 
 *~ You can try building with different versions of software with docker args, for example: PHP_VERISON=7.2.5 ~*
 ```bash
-git clone https://github.com/gerardo-junior/symfony.environment.git
-cd symfony.environment
-docker build . --tag gerardojunior/symfony.environment:stable
+git clone https://github.com/gerardo-junior/symfony-docker.git
+cd symfony-docker
+docker build . --tag gerardojunior/symfony:stable
 ```
 *~ you can install with [xdebug](https://xdebug.org/) with the argument: DEBUG=true ~*
 
@@ -42,7 +42,7 @@ docker build . --tag gerardojunior/symfony.environment:stable
 
 ```bash
 # in your project folder
-docker run -it --rm -v $(pwd):/usr/share/src -p 1234:80 gerardojunior/symfony.environment:stable [sh command or symfony console]
+docker run -it --rm -v $(pwd):/usr/share/src -p 1234:80 gerardojunior/symfony:stable [sh command or symfony console]
 ```
 ##### With [docker-compose](https://docs.docker.com/compose/)
 
@@ -51,8 +51,8 @@ Create the docker-compose.yml file  in your project folder with:
 ```yml
 # (...)
 
-  api: 
-    image: gerardojunior/symfony.environment:stable
+  backend: 
+    image: gerardojunior/symfony:stable
     volumes:
       - type: bind
         source: ./
@@ -67,11 +67,11 @@ Create the docker-compose.yml file  in your project folder with:
 ## How to enter image shell
  
 ```bash
-docker run -it --rm gerardojunior/symfony.environment:stable sh
+docker run -it --rm gerardojunior/symfony:stable sh
 
 # or with docker-compose
 
-docker-compose run api sh
+docker-compose run backend sh
 ```
 
 
